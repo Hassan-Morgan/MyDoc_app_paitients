@@ -1,0 +1,21 @@
+{
+    "welcome_message": "مرحبا بك في تطبيق طبيبي",
+    "sign_up":"تسجيل حساب جديد",
+    "sign_in":"تسجيل الدخول",
+    "sing_up_header_message":"سجل الان مجانا",
+    "sign_in_header_message":"سجل الدخول الي حسابك",
+    "email":"الايميل",
+    "password":"كلمة السر",
+    "forgot_password":"نسيت كلمة السر؟",
+    "or_continue_with":"او سجل باستخدام",
+    "facebook":"فيسبوك",
+    "google":"جوجل",
+    "have_no_account_message":"لا امتلك حساب؟",
+    "have_account_message":"امتلك حساب بالفعل؟",
+    "email_validation_message":"الايميل غير صحيح⛔️",
+    "empty_email_validation_message":"️يجب ادخال ايميل ⛔️",
+    "password_validation_message":"كلمة السر غير صحيحة ⛔️",
+    "empty_password_validation_message":"يجب ادخال كلمة السر ⛔️",
+    "password_values_to_validate": "( ! @ # $ & * ~ ) كلمة السر يجب ان تكون بطول ٨ احرف علي الاقل و تحتوي علي حرف كبير بالانجليزية و حرف صغير بالانجليزية و رقم و احد الاحرف الخاصة "
+
+}
