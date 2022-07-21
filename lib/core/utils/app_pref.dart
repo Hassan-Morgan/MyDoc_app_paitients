@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
-class AppData {
+class AppPref {
   static Locale? appLanguage;
   static ThemeMode appTheme = ThemeMode.system;
 
-  static setAppLanguage(Locale? localeLanguage) {
-    appLanguage = localeLanguage;
+  static setAppLanguage(String? language) {
+    if (language != null) {
+      appLanguage = Locale(language);
+    } else {
+      appLanguage = null;
+    }
   }
 
   static setAppTheme(ThemeMode themeMode) {

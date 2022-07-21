@@ -88,7 +88,7 @@ class __$$CanceledByUserCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CanceledByUser implements CanceledByUser {
-  _$CanceledByUser();
+  const _$CanceledByUser();
 
   @override
   String toString() {
@@ -162,5 +162,273 @@ class _$CanceledByUser implements CanceledByUser {
 }
 
 abstract class CanceledByUser implements AuthFailures {
-  factory CanceledByUser() = _$CanceledByUser;
+  const factory CanceledByUser() = _$CanceledByUser;
+}
+
+/// @nodoc
+mixin _$CashFailures {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noDataStored,
+    required TResult Function() getDataFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noDataStored,
+    TResult Function()? getDataFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noDataStored,
+    TResult Function()? getDataFailure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NoDataStored value) noDataStored,
+    required TResult Function(GetDataFailure value) getDataFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NoDataStored value)? noDataStored,
+    TResult Function(GetDataFailure value)? getDataFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NoDataStored value)? noDataStored,
+    TResult Function(GetDataFailure value)? getDataFailure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CashFailuresCopyWith<$Res> {
+  factory $CashFailuresCopyWith(
+          CashFailures value, $Res Function(CashFailures) then) =
+      _$CashFailuresCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$CashFailuresCopyWithImpl<$Res> implements $CashFailuresCopyWith<$Res> {
+  _$CashFailuresCopyWithImpl(this._value, this._then);
+
+  final CashFailures _value;
+  // ignore: unused_field
+  final $Res Function(CashFailures) _then;
+}
+
+/// @nodoc
+abstract class _$$NoDataStoredCopyWith<$Res> {
+  factory _$$NoDataStoredCopyWith(
+          _$NoDataStored value, $Res Function(_$NoDataStored) then) =
+      __$$NoDataStoredCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoDataStoredCopyWithImpl<$Res>
+    extends _$CashFailuresCopyWithImpl<$Res>
+    implements _$$NoDataStoredCopyWith<$Res> {
+  __$$NoDataStoredCopyWithImpl(
+      _$NoDataStored _value, $Res Function(_$NoDataStored) _then)
+      : super(_value, (v) => _then(v as _$NoDataStored));
+
+  @override
+  _$NoDataStored get _value => super._value as _$NoDataStored;
+}
+
+/// @nodoc
+
+class _$NoDataStored implements NoDataStored {
+  const _$NoDataStored();
+
+  @override
+  String toString() {
+    return 'CashFailures.noDataStored()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoDataStored);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noDataStored,
+    required TResult Function() getDataFailure,
+  }) {
+    return noDataStored();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noDataStored,
+    TResult Function()? getDataFailure,
+  }) {
+    return noDataStored?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noDataStored,
+    TResult Function()? getDataFailure,
+    required TResult orElse(),
+  }) {
+    if (noDataStored != null) {
+      return noDataStored();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NoDataStored value) noDataStored,
+    required TResult Function(GetDataFailure value) getDataFailure,
+  }) {
+    return noDataStored(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NoDataStored value)? noDataStored,
+    TResult Function(GetDataFailure value)? getDataFailure,
+  }) {
+    return noDataStored?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NoDataStored value)? noDataStored,
+    TResult Function(GetDataFailure value)? getDataFailure,
+    required TResult orElse(),
+  }) {
+    if (noDataStored != null) {
+      return noDataStored(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoDataStored implements CashFailures {
+  const factory NoDataStored() = _$NoDataStored;
+}
+
+/// @nodoc
+abstract class _$$GetDataFailureCopyWith<$Res> {
+  factory _$$GetDataFailureCopyWith(
+          _$GetDataFailure value, $Res Function(_$GetDataFailure) then) =
+      __$$GetDataFailureCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetDataFailureCopyWithImpl<$Res>
+    extends _$CashFailuresCopyWithImpl<$Res>
+    implements _$$GetDataFailureCopyWith<$Res> {
+  __$$GetDataFailureCopyWithImpl(
+      _$GetDataFailure _value, $Res Function(_$GetDataFailure) _then)
+      : super(_value, (v) => _then(v as _$GetDataFailure));
+
+  @override
+  _$GetDataFailure get _value => super._value as _$GetDataFailure;
+}
+
+/// @nodoc
+
+class _$GetDataFailure implements GetDataFailure {
+  const _$GetDataFailure();
+
+  @override
+  String toString() {
+    return 'CashFailures.getDataFailure()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetDataFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noDataStored,
+    required TResult Function() getDataFailure,
+  }) {
+    return getDataFailure();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noDataStored,
+    TResult Function()? getDataFailure,
+  }) {
+    return getDataFailure?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noDataStored,
+    TResult Function()? getDataFailure,
+    required TResult orElse(),
+  }) {
+    if (getDataFailure != null) {
+      return getDataFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NoDataStored value) noDataStored,
+    required TResult Function(GetDataFailure value) getDataFailure,
+  }) {
+    return getDataFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NoDataStored value)? noDataStored,
+    TResult Function(GetDataFailure value)? getDataFailure,
+  }) {
+    return getDataFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NoDataStored value)? noDataStored,
+    TResult Function(GetDataFailure value)? getDataFailure,
+    required TResult orElse(),
+  }) {
+    if (getDataFailure != null) {
+      return getDataFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetDataFailure implements CashFailures {
+  const factory GetDataFailure() = _$GetDataFailure;
 }

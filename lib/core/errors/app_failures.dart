@@ -6,5 +6,11 @@ abstract class Failure {}
 
 @freezed
 class AuthFailures with _$AuthFailures implements Failure {
-  factory AuthFailures.canecledByUser() = CanceledByUser;
+  const  factory  AuthFailures.canecledByUser() = CanceledByUser;
+}
+
+@freezed
+class CashFailures with _$CashFailures implements Failure {
+ const  factory CashFailures.noDataStored() = NoDataStored;
+ const  factory CashFailures.getDataFailure() = GetDataFailure;
 }
