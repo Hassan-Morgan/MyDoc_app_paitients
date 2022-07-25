@@ -14,7 +14,7 @@ class GetAppLanguageUsecase
   GetAppLanguageUsecase(this._repository);
 
   @override
-  Future<Either<Failure, AppLanguageEntity>> call(NoParams params) async {
+  Future<Either<CashFailures, AppLanguageEntity>> call(NoParams params) async {
     return await _repository.getAppLanguage();
   }
 }

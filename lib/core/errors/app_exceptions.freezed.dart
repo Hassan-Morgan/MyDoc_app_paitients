@@ -286,3 +286,877 @@ class _$UnImplementedException implements UnImplementedException {
 abstract class UnImplementedException implements CashExceptions {
   const factory UnImplementedException() = _$UnImplementedException;
 }
+
+/// @nodoc
+mixin _$AuthExceptions {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noCurrentUser,
+    required TResult Function() serverException,
+    required TResult Function() incorrectEmailOrPassword,
+    required TResult Function() emailAlreadyRegistered,
+    required TResult Function() canceledByUser,
+    required TResult Function() wrongEmail,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NocurrentUser value) noCurrentUser,
+    required TResult Function(ServerException value) serverException,
+    required TResult Function(IncorrectEmailOrPassword value)
+        incorrectEmailOrPassword,
+    required TResult Function(EmailAlreadyRegistered value)
+        emailAlreadyRegistered,
+    required TResult Function(CanceledByUser value) canceledByUser,
+    required TResult Function(wrongEmail value) wrongEmail,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AuthExceptionsCopyWith<$Res> {
+  factory $AuthExceptionsCopyWith(
+          AuthExceptions value, $Res Function(AuthExceptions) then) =
+      _$AuthExceptionsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AuthExceptionsCopyWithImpl<$Res>
+    implements $AuthExceptionsCopyWith<$Res> {
+  _$AuthExceptionsCopyWithImpl(this._value, this._then);
+
+  final AuthExceptions _value;
+  // ignore: unused_field
+  final $Res Function(AuthExceptions) _then;
+}
+
+/// @nodoc
+abstract class _$$NocurrentUserCopyWith<$Res> {
+  factory _$$NocurrentUserCopyWith(
+          _$NocurrentUser value, $Res Function(_$NocurrentUser) then) =
+      __$$NocurrentUserCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NocurrentUserCopyWithImpl<$Res>
+    extends _$AuthExceptionsCopyWithImpl<$Res>
+    implements _$$NocurrentUserCopyWith<$Res> {
+  __$$NocurrentUserCopyWithImpl(
+      _$NocurrentUser _value, $Res Function(_$NocurrentUser) _then)
+      : super(_value, (v) => _then(v as _$NocurrentUser));
+
+  @override
+  _$NocurrentUser get _value => super._value as _$NocurrentUser;
+}
+
+/// @nodoc
+
+class _$NocurrentUser implements NocurrentUser {
+  const _$NocurrentUser();
+
+  @override
+  String toString() {
+    return 'AuthExceptions.noCurrentUser()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NocurrentUser);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noCurrentUser,
+    required TResult Function() serverException,
+    required TResult Function() incorrectEmailOrPassword,
+    required TResult Function() emailAlreadyRegistered,
+    required TResult Function() canceledByUser,
+    required TResult Function() wrongEmail,
+  }) {
+    return noCurrentUser();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+  }) {
+    return noCurrentUser?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (noCurrentUser != null) {
+      return noCurrentUser();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NocurrentUser value) noCurrentUser,
+    required TResult Function(ServerException value) serverException,
+    required TResult Function(IncorrectEmailOrPassword value)
+        incorrectEmailOrPassword,
+    required TResult Function(EmailAlreadyRegistered value)
+        emailAlreadyRegistered,
+    required TResult Function(CanceledByUser value) canceledByUser,
+    required TResult Function(wrongEmail value) wrongEmail,
+  }) {
+    return noCurrentUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+  }) {
+    return noCurrentUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (noCurrentUser != null) {
+      return noCurrentUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NocurrentUser implements AuthExceptions {
+  const factory NocurrentUser() = _$NocurrentUser;
+}
+
+/// @nodoc
+abstract class _$$ServerExceptionCopyWith<$Res> {
+  factory _$$ServerExceptionCopyWith(
+          _$ServerException value, $Res Function(_$ServerException) then) =
+      __$$ServerExceptionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ServerExceptionCopyWithImpl<$Res>
+    extends _$AuthExceptionsCopyWithImpl<$Res>
+    implements _$$ServerExceptionCopyWith<$Res> {
+  __$$ServerExceptionCopyWithImpl(
+      _$ServerException _value, $Res Function(_$ServerException) _then)
+      : super(_value, (v) => _then(v as _$ServerException));
+
+  @override
+  _$ServerException get _value => super._value as _$ServerException;
+}
+
+/// @nodoc
+
+class _$ServerException implements ServerException {
+  const _$ServerException();
+
+  @override
+  String toString() {
+    return 'AuthExceptions.serverException()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ServerException);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noCurrentUser,
+    required TResult Function() serverException,
+    required TResult Function() incorrectEmailOrPassword,
+    required TResult Function() emailAlreadyRegistered,
+    required TResult Function() canceledByUser,
+    required TResult Function() wrongEmail,
+  }) {
+    return serverException();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+  }) {
+    return serverException?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (serverException != null) {
+      return serverException();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NocurrentUser value) noCurrentUser,
+    required TResult Function(ServerException value) serverException,
+    required TResult Function(IncorrectEmailOrPassword value)
+        incorrectEmailOrPassword,
+    required TResult Function(EmailAlreadyRegistered value)
+        emailAlreadyRegistered,
+    required TResult Function(CanceledByUser value) canceledByUser,
+    required TResult Function(wrongEmail value) wrongEmail,
+  }) {
+    return serverException(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+  }) {
+    return serverException?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (serverException != null) {
+      return serverException(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ServerException implements AuthExceptions {
+  const factory ServerException() = _$ServerException;
+}
+
+/// @nodoc
+abstract class _$$IncorrectEmailOrPasswordCopyWith<$Res> {
+  factory _$$IncorrectEmailOrPasswordCopyWith(_$IncorrectEmailOrPassword value,
+          $Res Function(_$IncorrectEmailOrPassword) then) =
+      __$$IncorrectEmailOrPasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$IncorrectEmailOrPasswordCopyWithImpl<$Res>
+    extends _$AuthExceptionsCopyWithImpl<$Res>
+    implements _$$IncorrectEmailOrPasswordCopyWith<$Res> {
+  __$$IncorrectEmailOrPasswordCopyWithImpl(_$IncorrectEmailOrPassword _value,
+      $Res Function(_$IncorrectEmailOrPassword) _then)
+      : super(_value, (v) => _then(v as _$IncorrectEmailOrPassword));
+
+  @override
+  _$IncorrectEmailOrPassword get _value =>
+      super._value as _$IncorrectEmailOrPassword;
+}
+
+/// @nodoc
+
+class _$IncorrectEmailOrPassword implements IncorrectEmailOrPassword {
+  const _$IncorrectEmailOrPassword();
+
+  @override
+  String toString() {
+    return 'AuthExceptions.incorrectEmailOrPassword()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IncorrectEmailOrPassword);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noCurrentUser,
+    required TResult Function() serverException,
+    required TResult Function() incorrectEmailOrPassword,
+    required TResult Function() emailAlreadyRegistered,
+    required TResult Function() canceledByUser,
+    required TResult Function() wrongEmail,
+  }) {
+    return incorrectEmailOrPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+  }) {
+    return incorrectEmailOrPassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (incorrectEmailOrPassword != null) {
+      return incorrectEmailOrPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NocurrentUser value) noCurrentUser,
+    required TResult Function(ServerException value) serverException,
+    required TResult Function(IncorrectEmailOrPassword value)
+        incorrectEmailOrPassword,
+    required TResult Function(EmailAlreadyRegistered value)
+        emailAlreadyRegistered,
+    required TResult Function(CanceledByUser value) canceledByUser,
+    required TResult Function(wrongEmail value) wrongEmail,
+  }) {
+    return incorrectEmailOrPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+  }) {
+    return incorrectEmailOrPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (incorrectEmailOrPassword != null) {
+      return incorrectEmailOrPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class IncorrectEmailOrPassword implements AuthExceptions {
+  const factory IncorrectEmailOrPassword() = _$IncorrectEmailOrPassword;
+}
+
+/// @nodoc
+abstract class _$$EmailAlreadyRegisteredCopyWith<$Res> {
+  factory _$$EmailAlreadyRegisteredCopyWith(_$EmailAlreadyRegistered value,
+          $Res Function(_$EmailAlreadyRegistered) then) =
+      __$$EmailAlreadyRegisteredCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmailAlreadyRegisteredCopyWithImpl<$Res>
+    extends _$AuthExceptionsCopyWithImpl<$Res>
+    implements _$$EmailAlreadyRegisteredCopyWith<$Res> {
+  __$$EmailAlreadyRegisteredCopyWithImpl(_$EmailAlreadyRegistered _value,
+      $Res Function(_$EmailAlreadyRegistered) _then)
+      : super(_value, (v) => _then(v as _$EmailAlreadyRegistered));
+
+  @override
+  _$EmailAlreadyRegistered get _value =>
+      super._value as _$EmailAlreadyRegistered;
+}
+
+/// @nodoc
+
+class _$EmailAlreadyRegistered implements EmailAlreadyRegistered {
+  const _$EmailAlreadyRegistered();
+
+  @override
+  String toString() {
+    return 'AuthExceptions.emailAlreadyRegistered()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmailAlreadyRegistered);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noCurrentUser,
+    required TResult Function() serverException,
+    required TResult Function() incorrectEmailOrPassword,
+    required TResult Function() emailAlreadyRegistered,
+    required TResult Function() canceledByUser,
+    required TResult Function() wrongEmail,
+  }) {
+    return emailAlreadyRegistered();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+  }) {
+    return emailAlreadyRegistered?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (emailAlreadyRegistered != null) {
+      return emailAlreadyRegistered();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NocurrentUser value) noCurrentUser,
+    required TResult Function(ServerException value) serverException,
+    required TResult Function(IncorrectEmailOrPassword value)
+        incorrectEmailOrPassword,
+    required TResult Function(EmailAlreadyRegistered value)
+        emailAlreadyRegistered,
+    required TResult Function(CanceledByUser value) canceledByUser,
+    required TResult Function(wrongEmail value) wrongEmail,
+  }) {
+    return emailAlreadyRegistered(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+  }) {
+    return emailAlreadyRegistered?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (emailAlreadyRegistered != null) {
+      return emailAlreadyRegistered(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmailAlreadyRegistered implements AuthExceptions {
+  const factory EmailAlreadyRegistered() = _$EmailAlreadyRegistered;
+}
+
+/// @nodoc
+abstract class _$$CanceledByUserCopyWith<$Res> {
+  factory _$$CanceledByUserCopyWith(
+          _$CanceledByUser value, $Res Function(_$CanceledByUser) then) =
+      __$$CanceledByUserCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CanceledByUserCopyWithImpl<$Res>
+    extends _$AuthExceptionsCopyWithImpl<$Res>
+    implements _$$CanceledByUserCopyWith<$Res> {
+  __$$CanceledByUserCopyWithImpl(
+      _$CanceledByUser _value, $Res Function(_$CanceledByUser) _then)
+      : super(_value, (v) => _then(v as _$CanceledByUser));
+
+  @override
+  _$CanceledByUser get _value => super._value as _$CanceledByUser;
+}
+
+/// @nodoc
+
+class _$CanceledByUser implements CanceledByUser {
+  const _$CanceledByUser();
+
+  @override
+  String toString() {
+    return 'AuthExceptions.canceledByUser()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CanceledByUser);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noCurrentUser,
+    required TResult Function() serverException,
+    required TResult Function() incorrectEmailOrPassword,
+    required TResult Function() emailAlreadyRegistered,
+    required TResult Function() canceledByUser,
+    required TResult Function() wrongEmail,
+  }) {
+    return canceledByUser();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+  }) {
+    return canceledByUser?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (canceledByUser != null) {
+      return canceledByUser();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NocurrentUser value) noCurrentUser,
+    required TResult Function(ServerException value) serverException,
+    required TResult Function(IncorrectEmailOrPassword value)
+        incorrectEmailOrPassword,
+    required TResult Function(EmailAlreadyRegistered value)
+        emailAlreadyRegistered,
+    required TResult Function(CanceledByUser value) canceledByUser,
+    required TResult Function(wrongEmail value) wrongEmail,
+  }) {
+    return canceledByUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+  }) {
+    return canceledByUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (canceledByUser != null) {
+      return canceledByUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CanceledByUser implements AuthExceptions {
+  const factory CanceledByUser() = _$CanceledByUser;
+}
+
+/// @nodoc
+abstract class _$$wrongEmailCopyWith<$Res> {
+  factory _$$wrongEmailCopyWith(
+          _$wrongEmail value, $Res Function(_$wrongEmail) then) =
+      __$$wrongEmailCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$wrongEmailCopyWithImpl<$Res>
+    extends _$AuthExceptionsCopyWithImpl<$Res>
+    implements _$$wrongEmailCopyWith<$Res> {
+  __$$wrongEmailCopyWithImpl(
+      _$wrongEmail _value, $Res Function(_$wrongEmail) _then)
+      : super(_value, (v) => _then(v as _$wrongEmail));
+
+  @override
+  _$wrongEmail get _value => super._value as _$wrongEmail;
+}
+
+/// @nodoc
+
+class _$wrongEmail implements wrongEmail {
+  const _$wrongEmail();
+
+  @override
+  String toString() {
+    return 'AuthExceptions.wrongEmail()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$wrongEmail);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noCurrentUser,
+    required TResult Function() serverException,
+    required TResult Function() incorrectEmailOrPassword,
+    required TResult Function() emailAlreadyRegistered,
+    required TResult Function() canceledByUser,
+    required TResult Function() wrongEmail,
+  }) {
+    return wrongEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+  }) {
+    return wrongEmail?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noCurrentUser,
+    TResult Function()? serverException,
+    TResult Function()? incorrectEmailOrPassword,
+    TResult Function()? emailAlreadyRegistered,
+    TResult Function()? canceledByUser,
+    TResult Function()? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (wrongEmail != null) {
+      return wrongEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NocurrentUser value) noCurrentUser,
+    required TResult Function(ServerException value) serverException,
+    required TResult Function(IncorrectEmailOrPassword value)
+        incorrectEmailOrPassword,
+    required TResult Function(EmailAlreadyRegistered value)
+        emailAlreadyRegistered,
+    required TResult Function(CanceledByUser value) canceledByUser,
+    required TResult Function(wrongEmail value) wrongEmail,
+  }) {
+    return wrongEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+  }) {
+    return wrongEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NocurrentUser value)? noCurrentUser,
+    TResult Function(ServerException value)? serverException,
+    TResult Function(IncorrectEmailOrPassword value)? incorrectEmailOrPassword,
+    TResult Function(EmailAlreadyRegistered value)? emailAlreadyRegistered,
+    TResult Function(CanceledByUser value)? canceledByUser,
+    TResult Function(wrongEmail value)? wrongEmail,
+    required TResult orElse(),
+  }) {
+    if (wrongEmail != null) {
+      return wrongEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class wrongEmail implements AuthExceptions {
+  const factory wrongEmail() = _$wrongEmail;
+}

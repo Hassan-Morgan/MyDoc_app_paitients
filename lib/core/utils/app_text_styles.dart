@@ -12,7 +12,7 @@ class AppTextStyles {
         fontSize: fontSize,
       );
 
-  static TextStyle boldTextStyle({
+  static TextStyle _boldTextStyle({
     required Color fontColor,
     required double fontSize,
   }) =>
@@ -22,7 +22,7 @@ class AppTextStyles {
         fontSize: fontSize,
       );
 
- static TextStyle semiBoldTextStyle({
+  static TextStyle _semiBoldTextStyle({
     required Color fontColor,
     required double fontSize,
   }) =>
@@ -32,7 +32,7 @@ class AppTextStyles {
         fontSize: fontSize,
       );
 
- static TextStyle mediumTextStyle({
+  static TextStyle _mediumTextStyle({
     required Color fontColor,
     required double fontSize,
   }) =>
@@ -42,7 +42,7 @@ class AppTextStyles {
         fontSize: fontSize,
       );
 
- static TextStyle regularTextStyle({
+  static TextStyle _regularTextStyle({
     required Color fontColor,
     required double fontSize,
   }) =>
@@ -52,7 +52,7 @@ class AppTextStyles {
         fontSize: fontSize,
       );
 
- static TextStyle lightTextStyle({
+  static TextStyle _lightTextStyle({
     required Color fontColor,
     required double fontSize,
   }) =>
@@ -60,5 +60,20 @@ class AppTextStyles {
         fontWeight: FontWeight.w300,
         fontColor: fontColor,
         fontSize: fontSize,
+      );
+
+  static TextStyle headLine1(Color fontColor) => _boldTextStyle(
+        fontColor: fontColor,
+        fontSize: 18,
+      );
+
+  static TextStyle headLine2(Color fontColor) => _semiBoldTextStyle(
+        fontColor: fontColor,
+        fontSize: 16,
+      );
+
+  static TextStyle textFormFieldHintStyle(Color fontColor) => _regularTextStyle(
+        fontColor: fontColor,
+        fontSize: 14,
       );
 }

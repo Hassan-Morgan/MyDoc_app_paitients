@@ -23,6 +23,7 @@ class AppPrefCubit extends Cubit<AppPrefStates> {
   final GetAppLanguageUsecase _appLanguageUsecase;
 
   void getAppTheme() async {
+    emit(AppPrefStates.initial());
     final themeOrFailure = await _appThemeUsecase(NoParams());
     themeOrFailure.fold(
       (l) {

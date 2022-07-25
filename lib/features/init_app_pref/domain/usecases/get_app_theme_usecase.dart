@@ -12,7 +12,7 @@ class GetAppThemeUsecase implements BaseUsecase<AppThemeEntity, NoParams> {
 
   GetAppThemeUsecase(this._repository);
   @override
-  Future<Either<Failure, AppThemeEntity>> call(NoParams params) async {
+  Future<Either<CashFailures, AppThemeEntity>> call(NoParams params) async {
     return await _repository.getAppTheme();
   }
 }
