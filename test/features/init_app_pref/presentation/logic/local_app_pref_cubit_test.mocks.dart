@@ -39,13 +39,13 @@ class MockGetAppLanguageUsecase extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.AppLanguageEntity>> call(
+  _i4.Future<_i2.Either<_i5.CashFailures, _i6.AppLanguageEntity>> call(
           _i7.NoParams? params) =>
       (super.noSuchMethod(Invocation.method(#call, [params]),
-              returnValue:
-                  Future<_i2.Either<_i5.Failure, _i6.AppLanguageEntity>>.value(
-                      _FakeEither_0<_i5.Failure, _i6.AppLanguageEntity>()))
-          as _i4.Future<_i2.Either<_i5.Failure, _i6.AppLanguageEntity>>);
+          returnValue: Future<
+                  _i2.Either<_i5.CashFailures, _i6.AppLanguageEntity>>.value(
+              _FakeEither_0<_i5.CashFailures, _i6.AppLanguageEntity>())) as _i4
+          .Future<_i2.Either<_i5.CashFailures, _i6.AppLanguageEntity>>);
 }
 
 /// A class which mocks [GetAppThemeUsecase].
@@ -58,11 +58,11 @@ class MockGetAppThemeUsecase extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i9.AppThemeEntity>> call(
+  _i4.Future<_i2.Either<_i5.CashFailures, _i9.AppThemeEntity>> call(
           _i7.NoParams? params) =>
       (super.noSuchMethod(Invocation.method(#call, [params]),
-              returnValue:
-                  Future<_i2.Either<_i5.Failure, _i9.AppThemeEntity>>.value(
-                      _FakeEither_0<_i5.Failure, _i9.AppThemeEntity>()))
-          as _i4.Future<_i2.Either<_i5.Failure, _i9.AppThemeEntity>>);
+          returnValue:
+              Future<_i2.Either<_i5.CashFailures, _i9.AppThemeEntity>>.value(
+                  _FakeEither_0<_i5.CashFailures, _i9.AppThemeEntity>())) as _i4
+          .Future<_i2.Either<_i5.CashFailures, _i9.AppThemeEntity>>);
 }

@@ -1,0 +1,4 @@
+enum AuthPagesEnum {
+  signInPage,
+  singUpPage,
+}

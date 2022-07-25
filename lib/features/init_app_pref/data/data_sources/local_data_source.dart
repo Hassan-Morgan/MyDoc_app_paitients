@@ -20,31 +20,37 @@ class AppPrefLocalDataSourceImpl implements AppPrefLocalDataSource {
   @override
   Future<Either<CashExceptions, AppLanguageModel>> getAppLanguage() async {
     final box = await _hive.openBox(LOCAL_PREF_BOX_KEY);
-    try {
-      String? language = box.get(LOCAL_PREF_LANGUAGE_FIELD_KEY);
-      if (language == null) {
-        return const Left(CashExceptions.noDataException());
-      }
-      return Right(AppLanguageModel.fromString(language));
-    } catch (_) {
-      return const Left(CashExceptions.unImplementedException());
-    } finally {
-      await box.close();
-    }
+    final result = await _getLocalData<AppLanguageModel>(
+      feildKey: LOCAL_PREF_LANGUAGE_FIELD_KEY,
+      box: box,
+      setValueFuncion: AppLanguageModel.fromString,
+    );
+    await box.close();
+    return result;
   }
 
   @override
   Future<Either<CashExceptions, AppThemeModel>> getAppTheme() async {
     final box = await _hive.openBox(LOCAL_PREF_BOX_KEY);
-    try {
-      String? theme = box.get(LOCAL_PREF_THEME_FIELD_KEY);
-      if (theme == null) {
+    return await _getLocalData<AppThemeModel>(
+      feildKey: LOCAL_PREF_THEME_FIELD_KEY,
+      box: box,
+      setValueFuncion: AppThemeModel.fromString,
+    );
+  }
 
+  Future<Either<CashExceptions, T>> _getLocalData<T>({
+    required String feildKey,
+    required Box box,
+    required T Function(String result) setValueFuncion,
+  }) async {
+    try {
+      String? theme = box.get(feildKey);
+      if (theme == null) {
         return const Left(CashExceptions.noDataException());
       }
-      return Right(AppThemeModel.fromString(theme));
+      return Right(setValueFuncion(theme));
     } catch (_) {
-
       return const Left(CashExceptions.unImplementedException());
     }
   }
