@@ -33,11 +33,19 @@ class MockAuthRepository extends _i1.Mock implements _i3.AuthRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.UserEntity>> getCurrentUser() =>
-      (super.noSuchMethod(Invocation.method(#getCurrentUser, []),
-          returnValue: Future<_i2.Either<_i5.Failure, _i6.UserEntity>>.value(
-              _FakeEither_0<_i5.Failure, _i6.UserEntity>())) as _i4
-          .Future<_i2.Either<_i5.Failure, _i6.UserEntity>>);
+  _i4.Future<_i2.Either<_i5.AuthFailures, _i2.Unit>> sentEmailVerification() =>
+      (super.noSuchMethod(Invocation.method(#sentEmailVerification, []),
+              returnValue: Future<_i2.Either<_i5.AuthFailures, _i2.Unit>>.value(
+                  _FakeEither_0<_i5.AuthFailures, _i2.Unit>()))
+          as _i4.Future<_i2.Either<_i5.AuthFailures, _i2.Unit>>);
+  @override
+  _i4.Future<_i2.Either<_i5.CurrentUserFailures, _i6.UserEntity>>
+      getCurrentUser() => (super.noSuchMethod(
+          Invocation.method(#getCurrentUser, []),
+          returnValue: Future<
+                  _i2.Either<_i5.CurrentUserFailures, _i6.UserEntity>>.value(
+              _FakeEither_0<_i5.CurrentUserFailures, _i6.UserEntity>())) as _i4
+          .Future<_i2.Either<_i5.CurrentUserFailures, _i6.UserEntity>>);
   @override
   _i4.Future<_i2.Either<_i5.AuthFailures, _i2.Unit>> signInWithEmailAndPassword(
           String? email, String? password) =>

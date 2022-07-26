@@ -107,6 +107,7 @@ ElevatedButtonThemeData get _elevatedButtonTheme => ElevatedButtonThemeData(
 OutlinedButtonThemeData get _outLinedInputTheme => OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         primary: AppColors.primaryBlueColor,
+        minimumSize: const Size(double.infinity, 45),
         shape: const StadiumBorder(),
       ),
     );

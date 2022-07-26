@@ -12,7 +12,7 @@ class GetCurrentUserUsecase implements BaseUsecase<UserEntity, NoParams> {
   GetCurrentUserUsecase(this._repository);
 
   @override
-  Future<Either<Failure, UserEntity>> call(NoParams params) async {
+  Future<Either<CurrentUserFailures, UserEntity>> call(NoParams params) async {
     return await _repository.getCurrentUser();
   }
 }

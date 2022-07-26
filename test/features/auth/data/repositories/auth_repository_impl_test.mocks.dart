@@ -38,12 +38,13 @@ class MockFirebaseAuthRemoteDataSource extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.AuthExceptions, _i6.UserModel>> getCurrentUser() =>
-      (super.noSuchMethod(Invocation.method(#getCurrentUser, []),
-              returnValue:
-                  Future<_i2.Either<_i5.AuthExceptions, _i6.UserModel>>.value(
-                      _FakeEither_0<_i5.AuthExceptions, _i6.UserModel>()))
-          as _i4.Future<_i2.Either<_i5.AuthExceptions, _i6.UserModel>>);
+  _i4.Future<_i2.Either<_i5.CurrentUserException, _i6.UserModel>>
+      getCurrentUser() => (super.noSuchMethod(
+          Invocation.method(#getCurrentUser, []),
+          returnValue: Future<
+                  _i2.Either<_i5.CurrentUserException, _i6.UserModel>>.value(
+              _FakeEither_0<_i5.CurrentUserException, _i6.UserModel>())) as _i4
+          .Future<_i2.Either<_i5.CurrentUserException, _i6.UserModel>>);
   @override
   _i4.Future<_i2.Either<_i5.AuthExceptions, _i2.Unit>>
       signInWithEmailAndPassword(String? email, String? password) => (super
@@ -82,6 +83,14 @@ class MockFirebaseAuthRemoteDataSource extends _i1.Mock
           returnValue: Future<_i2.Either<_i5.AuthExceptions, _i2.Unit>>.value(
               _FakeEither_0<_i5.AuthExceptions, _i2.Unit>())) as _i4
           .Future<_i2.Either<_i5.AuthExceptions, _i2.Unit>>);
+  @override
+  _i4.Future<_i2.Either<_i5.AuthExceptions, _i2.Unit>>
+      sendEmailVerification() =>
+          (super.noSuchMethod(Invocation.method(#sendEmailVerification, []),
+                  returnValue:
+                      Future<_i2.Either<_i5.AuthExceptions, _i2.Unit>>.value(
+                          _FakeEither_0<_i5.AuthExceptions, _i2.Unit>()))
+              as _i4.Future<_i2.Either<_i5.AuthExceptions, _i2.Unit>>);
 }
 
 /// A class which mocks [CurrentUserLocalDataSource].
@@ -94,12 +103,13 @@ class MockCurrentUserLocalDataSource extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.CashExceptions, _i6.UserModel>> getCurrentUser() =>
-      (super.noSuchMethod(Invocation.method(#getCurrentUser, []),
-              returnValue:
-                  Future<_i2.Either<_i5.CashExceptions, _i6.UserModel>>.value(
-                      _FakeEither_0<_i5.CashExceptions, _i6.UserModel>()))
-          as _i4.Future<_i2.Either<_i5.CashExceptions, _i6.UserModel>>);
+  _i4.Future<_i2.Either<_i5.CurrentUserException, _i6.UserModel>>
+      getCurrentUser() => (super.noSuchMethod(
+          Invocation.method(#getCurrentUser, []),
+          returnValue: Future<
+                  _i2.Either<_i5.CurrentUserException, _i6.UserModel>>.value(
+              _FakeEither_0<_i5.CurrentUserException, _i6.UserModel>())) as _i4
+          .Future<_i2.Either<_i5.CurrentUserException, _i6.UserModel>>);
   @override
   _i4.Future<void> setCurrentUser(_i6.UserModel? model) =>
       (super.noSuchMethod(Invocation.method(#setCurrentUser, [model]),

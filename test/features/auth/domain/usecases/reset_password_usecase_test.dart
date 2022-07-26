@@ -1,14 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:my_doc_app_for_patients/core/errors/app_failures.dart';
-import 'package:my_doc_app_for_patients/features/auth/domain/repositories/auth_repository.dart';
 import 'package:my_doc_app_for_patients/features/auth/domain/usecases/reset_password_usecase.dart';
 
 import 'get_current_user_usecase_test.mocks.dart';
 
-@GenerateMocks([AuthRepository])
+
 void main() {
   late MockAuthRepository repository;
   late ResetPasswordUsecase usecase;

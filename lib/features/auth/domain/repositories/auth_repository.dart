@@ -4,7 +4,9 @@ import 'package:my_doc_app_for_patients/features/auth/domain/entities/user_entit
 import '../../../../core/errors/app_failures.dart';
 
 abstract class AuthRepository {
-  Future<Either<Failure, UserEntity>> getCurrentUser();
+  Future<Either<AuthFailures, Unit>> sentEmailVerification();
+
+  Future<Either<CurrentUserFailures, UserEntity>> getCurrentUser();
 
   Future<Either<AuthFailures, Unit>> signInWithEmailAndPassword(
       String email, String password);

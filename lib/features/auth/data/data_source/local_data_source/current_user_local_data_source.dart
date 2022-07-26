@@ -6,7 +6,7 @@ import 'package:my_doc_app_for_patients/core/errors/app_exceptions.dart';
 import 'package:my_doc_app_for_patients/features/auth/data/models/user_model.dart';
 
 abstract class CurrentUserLocalDataSource {
-  Future<Either<CashExceptions, UserModel>> getCurrentUser();
+  Future<Either<CurrentUserException, UserModel>> getCurrentUser();
   Future<void> setCurrentUser(UserModel model);
 }
 
@@ -17,16 +17,16 @@ class CurrentUserLocalDatatSourceImpl extends CurrentUserLocalDataSource {
   CurrentUserLocalDatatSourceImpl(this._hive);
 
   @override
-  Future<Either<CashExceptions, UserModel>> getCurrentUser() async {
+  Future<Either<CurrentUserException, UserModel>> getCurrentUser() async {
     final box = await _hive.openBox(LOCAL_PREF_BOX_KEY);
     try {
       final Map? currentUser = box.get(CURRENT_USER_FIELD_KEY);
       if (currentUser == null) {
-        return const Left(CashExceptions.noDataException());
+        return const Left(CurrentUserException.noCurrentUser());
       }
-      return Right(UserModel.fromMap(currentUser ));
+      return Right(UserModel.fromMap(currentUser));
     } catch (e) {
-      return const Left(CashExceptions.unImplementedException());
+      return const Left(CurrentUserException.cashError());
     } finally {
       box.close();
     }
