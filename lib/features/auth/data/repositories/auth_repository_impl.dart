@@ -19,12 +19,12 @@ class AuthRepositoryImpl extends AuthRepository {
       this._remoteDataSource, this._localDataSource, this._networkInfo);
 
   @override
-  Future<Either<Failure, UserEntity>> getCurrentUser() async {
+  Future<Either<CurrentUserFailures, UserEntity>> getCurrentUser() async {
     final isConnectedToInternet = await _networkInfo.getCurrentConnectionState;
     if (isConnectedToInternet) {
       final remoteResult = await _remoteDataSource.getCurrentUser();
       return remoteResult.fold(
-        (l) => Left(_toAuthFailure(l)),
+        (l) => Left(_toCurrentUserFailure(l)),
         (r) async {
           await _localDataSource.setCurrentUser(r);
           return Right(r.toEntity());
@@ -33,11 +33,7 @@ class AuthRepositoryImpl extends AuthRepository {
     } else {
       final localResult = await _localDataSource.getCurrentUser();
       return localResult.fold(
-        (l) => l.when(
-          noDataException: () => const Left(CashFailures.noDataStored()),
-          unImplementedException: () =>
-              const Left(CashFailures.getDataFailure()),
-        ),
+        (l) => const Left(CurrentUserFailures.cashError()),
         (r) => Right(r.toEntity()),
       );
     }
@@ -99,6 +95,19 @@ class AuthRepositoryImpl extends AuthRepository {
     return const Left(AuthFailures.networkFailure());
   }
 
+  @override
+  Future<Either<AuthFailures, Unit>> sentEmailVerification() async {
+    if (await _networkInfo.getCurrentConnectionState) {
+      final result = await _remoteDataSource.sendEmailVerification();
+      return result.fold(
+        (l) => Left(_toAuthFailure(l)),
+        (r) => const Right(unit),
+      );
+    } else {
+      return const Left(AuthFailures.networkFailure());
+    }
+  }
+
   Future<Either<AuthFailures, Unit>> _authFunction({
     required Future<Either<AuthExceptions, Unit>> authResult,
   }) async {
@@ -109,10 +118,19 @@ class AuthRepositoryImpl extends AuthRepository {
     );
   }
 
+  CurrentUserFailures _toCurrentUserFailure(CurrentUserException exception) {
+    return exception.when(
+      noCurrentUser: () => const CurrentUserFailures.noCurrentUser(),
+      unverifiedEmail: () => const CurrentUserFailures.unverifiedEmail(),
+      cashError: () => const CurrentUserFailures.cashError(),
+      serverError: () => const CurrentUserFailures.serverError(),
+      uncompletedAccount: () => const CurrentUserFailures.uncompletedAccount(),
+    );
+  }
+
   AuthFailures _toAuthFailure(AuthExceptions exceptions) {
     return exceptions.when(
       wrongEmail: () => const AuthFailures.wrongEmail(),
-      noCurrentUser: () => const AuthFailures.noCurrentUser(),
       serverException: () => const AuthFailures.serverError(),
       incorrectEmailOrPassword: () =>
           const AuthFailures.incorrectEmailOrPassword(),

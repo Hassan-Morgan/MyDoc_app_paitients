@@ -1,0 +1,1 @@
+const FIREBASE_USERS_COLLECTION = 'users';

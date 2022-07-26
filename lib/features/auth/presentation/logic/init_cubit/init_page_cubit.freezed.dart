@@ -20,21 +20,21 @@ mixin _$AuthInitPageState {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function(UserEntity currentUser) successState,
-    required TResult Function() errorState,
+    required TResult Function(CurrentUserFailures failure) errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(UserEntity currentUser)? successState,
-    TResult Function()? errorState,
+    TResult Function(CurrentUserFailures failure)? errorState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(UserEntity currentUser)? successState,
-    TResult Function()? errorState,
+    TResult Function(CurrentUserFailures failure)? errorState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -122,7 +122,7 @@ class _$_InitState implements _InitState {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function(UserEntity currentUser) successState,
-    required TResult Function() errorState,
+    required TResult Function(CurrentUserFailures failure) errorState,
   }) {
     return initState();
   }
@@ -132,7 +132,7 @@ class _$_InitState implements _InitState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(UserEntity currentUser)? successState,
-    TResult Function()? errorState,
+    TResult Function(CurrentUserFailures failure)? errorState,
   }) {
     return initState?.call();
   }
@@ -142,7 +142,7 @@ class _$_InitState implements _InitState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(UserEntity currentUser)? successState,
-    TResult Function()? errorState,
+    TResult Function(CurrentUserFailures failure)? errorState,
     required TResult orElse(),
   }) {
     if (initState != null) {
@@ -258,7 +258,7 @@ class _$_SuccessState implements _SuccessState {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function(UserEntity currentUser) successState,
-    required TResult Function() errorState,
+    required TResult Function(CurrentUserFailures failure) errorState,
   }) {
     return successState(currentUser);
   }
@@ -268,7 +268,7 @@ class _$_SuccessState implements _SuccessState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(UserEntity currentUser)? successState,
-    TResult Function()? errorState,
+    TResult Function(CurrentUserFailures failure)? errorState,
   }) {
     return successState?.call(currentUser);
   }
@@ -278,7 +278,7 @@ class _$_SuccessState implements _SuccessState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(UserEntity currentUser)? successState,
-    TResult Function()? errorState,
+    TResult Function(CurrentUserFailures failure)? errorState,
     required TResult orElse(),
   }) {
     if (successState != null) {
@@ -336,6 +336,9 @@ abstract class _$$_ErrorStateCopyWith<$Res> {
   factory _$$_ErrorStateCopyWith(
           _$_ErrorState value, $Res Function(_$_ErrorState) then) =
       __$$_ErrorStateCopyWithImpl<$Res>;
+  $Res call({CurrentUserFailures failure});
+
+  $CurrentUserFailuresCopyWith<$Res> get failure;
 }
 
 /// @nodoc
@@ -348,35 +351,65 @@ class __$$_ErrorStateCopyWithImpl<$Res>
 
   @override
   _$_ErrorState get _value => super._value as _$_ErrorState;
+
+  @override
+  $Res call({
+    Object? failure = freezed,
+  }) {
+    return _then(_$_ErrorState(
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as CurrentUserFailures,
+    ));
+  }
+
+  @override
+  $CurrentUserFailuresCopyWith<$Res> get failure {
+    return $CurrentUserFailuresCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_ErrorState implements _ErrorState {
-  _$_ErrorState();
+  _$_ErrorState(this.failure);
+
+  @override
+  final CurrentUserFailures failure;
 
   @override
   String toString() {
-    return 'AuthInitPageState.errorState()';
+    return 'AuthInitPageState.errorState(failure: $failure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ErrorState);
+        (other.runtimeType == runtimeType &&
+            other is _$_ErrorState &&
+            const DeepCollectionEquality().equals(other.failure, failure));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ErrorStateCopyWith<_$_ErrorState> get copyWith =>
+      __$$_ErrorStateCopyWithImpl<_$_ErrorState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function(UserEntity currentUser) successState,
-    required TResult Function() errorState,
+    required TResult Function(CurrentUserFailures failure) errorState,
   }) {
-    return errorState();
+    return errorState(failure);
   }
 
   @override
@@ -384,9 +417,9 @@ class _$_ErrorState implements _ErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(UserEntity currentUser)? successState,
-    TResult Function()? errorState,
+    TResult Function(CurrentUserFailures failure)? errorState,
   }) {
-    return errorState?.call();
+    return errorState?.call(failure);
   }
 
   @override
@@ -394,11 +427,11 @@ class _$_ErrorState implements _ErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(UserEntity currentUser)? successState,
-    TResult Function()? errorState,
+    TResult Function(CurrentUserFailures failure)? errorState,
     required TResult orElse(),
   }) {
     if (errorState != null) {
-      return errorState();
+      return errorState(failure);
     }
     return orElse();
   }
@@ -439,5 +472,10 @@ class _$_ErrorState implements _ErrorState {
 }
 
 abstract class _ErrorState implements AuthInitPageState {
-  factory _ErrorState() = _$_ErrorState;
+  factory _ErrorState(final CurrentUserFailures failure) = _$_ErrorState;
+
+  CurrentUserFailures get failure;
+  @JsonKey(ignore: true)
+  _$$_ErrorStateCopyWith<_$_ErrorState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

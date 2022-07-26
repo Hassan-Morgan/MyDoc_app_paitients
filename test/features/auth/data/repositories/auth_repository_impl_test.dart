@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -74,16 +73,16 @@ void main() {
             },
           );
           test(
-            '''should return Failure when call the fuction
-             and there is network connection and error happen''',
+            '''should return CurrentUserFailure when call the fuction
+             and there is network connection and any CurrentUserException happen''',
             () async {
               when(remoteDataSource.getCurrentUser()).thenAnswer(
                   (realInvocation) async =>
-                      const Left(AuthExceptions.noCurrentUser()));
+                      const Left(CurrentUserException.cashError()));
               when(localDataSource.setCurrentUser(any))
-                  .thenAnswer((realInvocation) async => Void);
+                  .thenAnswer((realInvocation) async => unit);
               final result = await repository.getCurrentUser();
-              expect(result, const Left(AuthFailures.noCurrentUser()));
+              expect(result, const Left(CurrentUserFailures.cashError()));
               verify(remoteDataSource.getCurrentUser()).called(1);
               verifyNever(localDataSource.getCurrentUser());
             },
@@ -119,9 +118,9 @@ void main() {
             () async {
               when(localDataSource.getCurrentUser()).thenAnswer(
                   (realInvocation) async =>
-                      const Left(CashExceptions.noDataException()));
+                      const Left(CurrentUserException.cashError()));
               final result = await repository.getCurrentUser();
-              expect(result, const Left(CashFailures.noDataStored()));
+              expect(result, const Left(CurrentUserFailures.cashError()));
               verify(localDataSource.getCurrentUser()).called(1);
               verifyNever(remoteDataSource.getCurrentUser());
             },
@@ -443,6 +442,49 @@ void main() {
               verify(remoteDataSource.resetPassword(testEmail)).called(1);
             },
           );
+        },
+      );
+    },
+  );
+
+  group(
+    'send email verification',
+    () {
+      test(
+        "should return unit when call the function and no errors happen",
+        () async {
+          when(networkInfo.getCurrentConnectionState)
+              .thenAnswer((_) async => true);
+          when(remoteDataSource.sendEmailVerification())
+              .thenAnswer((realInvocation) async => const Right(unit));
+          final result = await repository.sentEmailVerification();
+          expect(result, const Right(unit));
+          verify(remoteDataSource.sendEmailVerification()).called(1);
+        },
+      );
+
+      test(
+        "should return AuthFailure when call the function and no errors happen",
+        () async {
+          when(networkInfo.getCurrentConnectionState)
+              .thenAnswer((_) async => true);
+          when(remoteDataSource.sendEmailVerification()).thenAnswer(
+              (realInvocation) async =>
+                  const Left(AuthExceptions.serverException()));
+          final result = await repository.sentEmailVerification();
+          expect(result, const Left(AuthFailures.serverError()));
+          verify(remoteDataSource.sendEmailVerification()).called(1);
+        },
+      );
+
+       test(
+        "should return AuthFailure.networkFailure when call the function and no errors happen",
+        () async {
+          when(networkInfo.getCurrentConnectionState)
+              .thenAnswer((_) async => false);
+          final result = await repository.sentEmailVerification();
+          expect(result, const Left(AuthFailures.networkFailure()));
+          verifyNever(remoteDataSource.sendEmailVerification());
         },
       );
     },

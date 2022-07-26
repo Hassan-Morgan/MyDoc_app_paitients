@@ -1,14 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import 'package:my_doc_app_for_patients/core/end_points/remote_end_points.dart';
 import 'package:my_doc_app_for_patients/core/errors/app_exceptions.dart';
 
 import '../../models/user_model.dart';
 
 abstract class FirebaseAuthRemoteDataSource {
-  Future<Either<AuthExceptions, UserModel>> getCurrentUser();
+  Future<Either<CurrentUserException, UserModel>> getCurrentUser();
   Future<Either<AuthExceptions, Unit>> signInWithEmailAndPassword(
       String email, String password);
   Future<Either<AuthExceptions, Unit>> registerWithEmailAndPassword(
@@ -16,6 +18,7 @@ abstract class FirebaseAuthRemoteDataSource {
   Future<Either<AuthExceptions, Unit>> registerWithGoogle();
   Future<Either<AuthExceptions, Unit>> registerWithFacebook();
   Future<Either<AuthExceptions, Unit>> resetPassword(String email);
+  Future<Either<AuthExceptions, Unit>> sendEmailVerification();
 }
 
 @LazySingleton(as: FirebaseAuthRemoteDataSource)
@@ -23,23 +26,36 @@ class FirebaseAuthRemoteDataSourceImpl implements FirebaseAuthRemoteDataSource {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
   final FacebookAuth _facebookAuth;
+  final FirebaseFirestore _firebaseFirestore;
 
   FirebaseAuthRemoteDataSourceImpl(
     this._firebaseAuth,
     this._googleSignIn,
     this._facebookAuth,
+    this._firebaseFirestore,
   );
 
   @override
-  Future<Either<AuthExceptions, UserModel>> getCurrentUser() async {
+  Future<Either<CurrentUserException, UserModel>> getCurrentUser() async {
     try {
       final User? currentUser = _firebaseAuth.currentUser;
       if (currentUser == null) {
-        return const Left(AuthExceptions.noCurrentUser());
+        return const Left(CurrentUserException.noCurrentUser());
+      }
+      await currentUser.reload();
+      if (!currentUser.emailVerified &&
+          currentUser.providerData[0].providerId != 'facebook.com') {
+        return const Left(CurrentUserException.unverifiedEmail());
+      }
+      final userData = await _firebaseFirestore
+          .doc('$FIREBASE_USERS_COLLECTION/${currentUser.uid}')
+          .get();
+      if (!userData.exists) {
+        return const Left(CurrentUserException.uncompletedAccount());
       }
       return Right(UserModel.fromUser(currentUser));
     } catch (_) {
-      return const Left(AuthExceptions.serverException());
+      return const Left(CurrentUserException.serverError());
     }
   }
 
@@ -112,6 +128,17 @@ class FirebaseAuthRemoteDataSourceImpl implements FirebaseAuthRemoteDataSource {
     }
   }
 
+  @override
+  Future<Either<AuthExceptions, Unit>> sendEmailVerification() async {
+    try {
+      final currentUser = _firebaseAuth.currentUser;
+      await currentUser!.sendEmailVerification();
+      return const Right(unit);
+    } catch (e) {
+      return const Left(AuthExceptions.serverException());
+    }
+  }
+
   Future<Either<AuthExceptions, Unit>> _authWithEmailAndPassword({
     required Future<UserCredential> Function(
             {required String email, required String password})
@@ -120,7 +147,11 @@ class FirebaseAuthRemoteDataSourceImpl implements FirebaseAuthRemoteDataSource {
     required String password,
   }) async {
     try {
-      await authFunction(email: email, password: password);
+      final userCredintial =
+          await authFunction(email: email, password: password);
+      if (!userCredintial.user!.emailVerified) {
+        userCredintial.user!.sendEmailVerification();
+      }
       return const Right(unit);
     } on FirebaseAuthException catch (e) {
       switch (e.code) {

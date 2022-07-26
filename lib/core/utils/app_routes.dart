@@ -4,10 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_doc_app_for_patients/core/injector/injections.dart';
 import 'package:my_doc_app_for_patients/features/auth/presentation/pages/auth_page.dart';
 import 'package:my_doc_app_for_patients/features/auth/presentation/pages/reset_password_page.dart';
+import 'package:my_doc_app_for_patients/features/auth/presentation/pages/verify_email_page.dart';
 
 import '../../features/auth/presentation/logic/auth_page_bloc/auth_bloc.dart';
 import '../../features/auth/presentation/logic/init_cubit/init_page_cubit.dart';
 import '../../features/auth/presentation/logic/reset_password_cubit/reset_password_cubit.dart';
+import '../../features/auth/presentation/logic/verify_email_cubit/verify_email_cubit.dart';
 import '../../features/init_app_pref/presentation/logic/cubit/app_pref_cubit.dart';
 import '../../features/init_app_pref/presentation/pages/intial_page.dart';
 
@@ -16,16 +18,37 @@ class AppRoutes {
   static const String authPageRoute = '/authPage';
   static const String homePageRoute = '/homePage';
   static const String resetPasswordPageRoute = '/resetPasswordPage';
+  static const String verifyEmailPageRoute = '/verifyEmailPage';
+  static const String setUserinfoPageRoute = '/setUserInfoPage';
 }
 
 Route appGeneratedRoute(RouteSettings settings) {
   switch (settings.name) {
+    case AppRoutes.setUserinfoPageRoute:
+      return MaterialPageRoute(
+        builder: (context) => Scaffold(
+          body: Center(
+            child: Text(
+              "set user data",
+              style: Theme.of(context).textTheme.headline1,
+            ),
+          ),
+        ),
+      );
+    case AppRoutes.verifyEmailPageRoute:
+      return MaterialPageRoute(
+        builder: (context) => BlocProvider(
+          create: (context) => getIt<VerifyEmailCubit>(),
+          child: const VerifyEmailPage(),
+        ),
+      );
     case AppRoutes.resetPasswordPageRoute:
       return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-                create: (context) => getIt<ResetPasswordCubit>(),
-                child: ResetPasswordPage(),
-              ));
+        builder: (context) => BlocProvider(
+          create: (context) => getIt<ResetPasswordCubit>(),
+          child: ResetPasswordPage(),
+        ),
+      );
     case AppRoutes.homePageRoute:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

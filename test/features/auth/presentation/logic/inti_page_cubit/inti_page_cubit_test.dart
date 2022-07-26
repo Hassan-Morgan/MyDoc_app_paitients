@@ -23,7 +23,7 @@ void main() {
   );
 
   const testUserEntity = UserEntity('test uid');
-  const testAuthFailures = AuthFailures.noCurrentUser();
+  const testFailure = CurrentUserFailures.noCurrentUser();
 
   test(
     '''should set state to success when init the cubit 
@@ -44,11 +44,11 @@ void main() {
     and errors happen when call the getCurrentUser function''',
     () async {
       when(currentUserUsecase(any))
-          .thenAnswer((realInvocation) async => const Left(testAuthFailures));
+          .thenAnswer((realInvocation) async => const Left(testFailure));
       cubit.getCurrentUser();
       expect(cubit.state, AuthInitPageState.initState());
       await untilCalled(currentUserUsecase(any));
-      expect(cubit.state, AuthInitPageState.errorState());
+      expect(cubit.state, AuthInitPageState.errorState(testFailure));
       verify(currentUserUsecase(NoParams()));
     },
   );

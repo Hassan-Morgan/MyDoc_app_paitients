@@ -53,12 +53,12 @@ void main() {
       );
 
       test(
-        "should return CashException.noDataException when call the function and no data stored",
+        "should return CurrentUserException.noCurrentUser when call the function and no data stored",
         () async {
           when(hive.openBox(any)).thenAnswer((realInvocation) async => testBox);
           when(testBox.get(any)).thenReturn(null);
           final result = await localDataSource.getCurrentUser();
-          expect(result, const Left(CashExceptions.noDataException()));
+          expect(result, const Left(CurrentUserException.noCurrentUser()));
           verify(hive.openBox(LOCAL_PREF_BOX_KEY)).called(1);
           verify(testBox.get(CURRENT_USER_FIELD_KEY)).called(1);
           verify(testBox.close()).called(1);
@@ -66,12 +66,12 @@ void main() {
       );
 
       test(
-        "should return CashException.unimplementedException when call the function and error happen",
+        "should return CurrentUserException.cashError when call the function and error happen",
         () async {
           when(hive.openBox(any)).thenAnswer((realInvocation) async => testBox);
           when(testBox.get(any)).thenThrow(Exception());
           final result = await localDataSource.getCurrentUser();
-          expect(result, const Left(CashExceptions.unImplementedException()));
+          expect(result, const Left(CurrentUserException.cashError()));
           verify(hive.openBox(LOCAL_PREF_BOX_KEY)).called(1);
           verify(testBox.get(CURRENT_USER_FIELD_KEY)).called(1);
           verify(testBox.close()).called(1);

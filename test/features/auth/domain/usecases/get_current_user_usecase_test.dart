@@ -22,7 +22,7 @@ void main() {
     },
   );
 
-  const testAuthFailure = AuthFailures.noCurrentUser();
+  const testFailure = CurrentUserFailures.noCurrentUser();
   const testUserEntity = UserEntity('test id');
 
   test(
@@ -41,10 +41,10 @@ void main() {
     'should return Failure when call the function and error happen',
     () async {
       when(repository.getCurrentUser()).thenAnswer(
-        (realInvocation) async => const Left(testAuthFailure),
+        (realInvocation) async => const Left(testFailure),
       );
       final result = await usecase(NoParams());
-      expect(result, const Left(testAuthFailure));
+      expect(result, const Left(testFailure));
       verify(repository.getCurrentUser()).called(1);
     },
   );

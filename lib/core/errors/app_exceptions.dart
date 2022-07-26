@@ -4,17 +4,26 @@ part 'app_exceptions.freezed.dart';
 
 @freezed
 class CashExceptions with _$CashExceptions {
-  const factory CashExceptions.noDataException() = NoDataException;
+  const factory CashExceptions.noDataException() = _NoDataException;
   const factory CashExceptions.unImplementedException() =
-      UnImplementedException;
+      _UnImplementedException;
 }
 
 @freezed
 class AuthExceptions with _$AuthExceptions {
-  const factory AuthExceptions.noCurrentUser() = NocurrentUser;
-  const factory AuthExceptions.serverException() = ServerException;
-  const factory AuthExceptions.incorrectEmailOrPassword() = IncorrectEmailOrPassword;
-  const factory AuthExceptions.emailAlreadyRegistered() = EmailAlreadyRegistered;
-  const factory AuthExceptions.canceledByUser() = CanceledByUser;
-  const factory AuthExceptions.wrongEmail() = wrongEmail;
+  const factory AuthExceptions.serverException() = _AuthServerException;
+  const factory AuthExceptions.incorrectEmailOrPassword() = _IncorrectEmailOrPassword;
+  const factory AuthExceptions.emailAlreadyRegistered() = _EmailAlreadyRegistered;
+  const factory AuthExceptions.canceledByUser() = _CanceledByUser;
+  const factory AuthExceptions.wrongEmail() = _wrongEmail;
+}
+
+@freezed
+class CurrentUserException with _$CurrentUserException {
+  const factory CurrentUserException.noCurrentUser() = _NocurrentUser;
+  const factory CurrentUserException.unverifiedEmail() = _UnverifiedEmail;
+  const factory CurrentUserException.cashError() = _CashError;
+  const factory CurrentUserException.serverError() = _CurrentUserServerError;
+  const factory CurrentUserException.uncompletedAccount() = _UncompletedAccount;
+ 
 }
